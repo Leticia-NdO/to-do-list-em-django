@@ -1,0 +1,13 @@
+{% extends 'main/base2.html' %}
+
+{% block title %} Criar uma conta {% endblock %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+    <form action="/register/" method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-outline-dark">Registrar-se</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'main/base.html'%}
+
+{% block title %}{{name}}{% endblock %}
+{% block content %}
+
+<h2>{{name}}</h2>
+<form action="{{t.id}}" method="post">
+    {% csrf_token %}
+
+    {% for item in items %}
+    <div class="input-group mb-3">
+        <div class="input-group-text">
+            {% if item.complete == True%}
+            <input type="checkbox" , value="clicked" , name="c{{item.id}}" checked>
+            {% else %}
+            <input type="checkbox" , value="clicked" , name="c{{item.id}}">
+            {% endif %}
+        </div>
+        <input type="text" , value="{{item.text}}" , class="form-control">
+    </div>
+    {% endfor %}
+    <div class="input-group mb-3">
+        <div class="input-group-text">
+            <button type="submit" , name="newItem" , value="newItem" , class="btn btn-sucess">Adicionar item</button>
+        </div>
+        <input type="text" name="novo">
+    </div>
+    <button type="submit" , name="save" , value="save" , class="btn btn-outline-dark">Salvar</button>
+</form>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Listas{% endblock %}
+
+{% block content %}
+
+<h2>Suas listas: </h2>
+
+{% for name in t %}
+    <a href="/{{name.id}}"><h3>{{name}}</h3></a>
+
+{% endfor %}
+
+{% endblock %}
